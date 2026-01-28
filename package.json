@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "vite --host",
+  "dev:server": "npm --prefix server run dev",
+  "dev:all": "concurrently \"npm run dev\" \"npm run dev:server\"",
+  "build": "tsc -b && vite build",
+  "preview": "vite preview"
+},
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
@@ -20,6 +21,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.23",
+    "concurrently": "^9.1.2",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
